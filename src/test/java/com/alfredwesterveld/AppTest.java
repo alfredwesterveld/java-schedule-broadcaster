@@ -5,6 +5,7 @@ import com.ning.http.client.AsyncHttpClient;
 import com.ning.http.client.Response;
 import java.util.concurrent.Future;
 import org.atmosphere.grizzly.AtmosphereSpadeServer;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,7 +19,7 @@ public class AppTest {
      * 
      * @throws Exception
      */
-    @Test
+    @Test @Ignore
     public void testSimpleResource() throws Exception {
         System.out.println("vaag in het kwadraat");
         AtmosphereSpadeServer setup = 
@@ -33,5 +34,10 @@ public class AppTest {
     @Test
     public void simpleTest() throws Exception {
         assertTrue(true);
+    }
+
+    @Test
+    public void three() throws Exception {
+        System.out.println("three times is blaat");
     }
 }
