@@ -36,21 +36,13 @@ public class ScheduleBroadcasterWebService {
     private static Scheduler<String> messages = App.getScheduler();
 
     @GET
-    @Path("info")
-    public String get() {
-        return "scheduler";
-    }
-
-    @GET
     @Suspend(outputComments=false)
-    @Path("")
     public Broadcastable getMessages() {
         return new Broadcastable(scheduleBroadcaster);
     }
     
     @POST
     @Consumes("application/x-www-form-urlencoded")
-    @Path("")
     public String post(MultivaluedMap<String, String> form) {
         String epochStr = form.getFirst("epoch");
         String message = form.getFirst("message");

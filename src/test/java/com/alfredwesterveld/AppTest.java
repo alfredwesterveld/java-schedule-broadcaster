@@ -19,13 +19,13 @@ public class AppTest {
      * @throws Exception
      */
     @Test
-    public void testServer() throws Exception {
+    public void testSimpleResource() throws Exception {
         AtmosphereSpadeServer setup = 
             WebServerConfigurator.setup(HOST);
         setup.start();
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         Future<Response> execute = 
-            asyncHttpClient.prepareGet(HOST + "scheduler/info").execute();
+            asyncHttpClient.prepareGet(HOST + "test").execute();
         assertEquals("scheduler", execute.get().getResponseBody());
     }
 }
