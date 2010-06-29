@@ -22,9 +22,9 @@
             <layout>default</layout>
         </repository>
         <repository>
-            <id>Sonatype</id>
+            <id>com.ning</id>
             <name>Sonatype Release</name>
-            <url>http://oss.sonatype.org/content/repositories/releases</url>
+            <url>http://oss.sonatype.org/service/local/repositories/snapshots/content</url>
         </repository>
 
     </repositories>
@@ -73,7 +73,6 @@
             <version>4.4</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.atmosphere</groupId>
             <artifactId>atmosphere-jersey</artifactId>
