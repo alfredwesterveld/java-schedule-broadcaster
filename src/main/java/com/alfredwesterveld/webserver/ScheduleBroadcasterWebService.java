@@ -36,6 +36,12 @@ public class ScheduleBroadcasterWebService {
     private static Scheduler<String> messages = App.getScheduler();
 
     @GET
+    @Path("info")
+    public String get() {
+        return "scheduler";
+    }
+
+    @GET
     @Suspend(outputComments=false)
     public Broadcastable getMessages() {
         return new Broadcastable(scheduleBroadcaster);
