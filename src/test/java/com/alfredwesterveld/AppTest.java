@@ -25,7 +25,7 @@ public class AppTest {
         setup.start();
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         Future<Response> execute = 
-            asyncHttpClient.prepareGet(HOST + "schedule/info").execute();
+            asyncHttpClient.prepareGet(HOST + "scheduler/info").execute();
         assertEquals("scheduler", execute.get().getResponseBody());
     }
 }
