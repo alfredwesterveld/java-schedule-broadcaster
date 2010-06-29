@@ -19,9 +19,14 @@ public class AppTest {
      * 
      * @throws Exception
      */
-    @Test @Ignore
+    @Test
     public void testSimpleResource() throws Exception {
-        System.out.println("vaag in het kwadraat");
+        System.out.println("llllllll");
+        System.out.println("llllllll");
+        System.out.println("llllllll");
+        System.out.println("llllllll");
+        System.out.println("llllllll");
+        System.out.println("llllllll");
         AtmosphereSpadeServer setup = 
             WebServerConfigurator.setup(HOST);
         setup.start();
