@@ -20,6 +20,7 @@ public class AppTest {
      */
     @Test
     public void testSimpleResource() throws Exception {
+        System.out.println("vaag in het kwadraat");
         AtmosphereSpadeServer setup = 
             WebServerConfigurator.setup(HOST);
         setup.start();
@@ -27,5 +28,10 @@ public class AppTest {
         Future<Response> execute = 
             asyncHttpClient.prepareGet(HOST + "test").execute();
         assertEquals("scheduler", execute.get().getResponseBody());
+    }
+
+    @Test
+    public void simpleTest() throws Exception {
+        assertTrue(true);
     }
 }
