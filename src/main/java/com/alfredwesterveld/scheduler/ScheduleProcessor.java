@@ -5,7 +5,9 @@
 
 package com.alfredwesterveld.scheduler;
 
-import com.alfredwesterveld.webserver.ScheduleBroadcasterWebService;
+import com.alfredwesterveld.redis_netty.Redis;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,17 +15,22 @@ import com.alfredwesterveld.webserver.ScheduleBroadcasterWebService;
  */
 public class ScheduleProcessor {
     private final Scheduler<?> scheduler;
-    
-    public ScheduleProcessor(Scheduler<?> scheduler) {
+
+    private final Redis redis;
+
+    public ScheduleProcessor(Scheduler<?> scheduler, Redis redis) {
         this.scheduler = scheduler;
+        this.redis = redis;
     }
 
     public void process() {
         while (true) {
             try {
-                Task<?> run = scheduler.run();
-                Object job = run.getJob();
-                ScheduleBroadcasterWebService.broadcast(job.toString());
+                Task<?> run = scheduler.get();
+                Object job = run.getTask();
+                Logger.getLogger(ScheduleProcessor.class.getName())
+                    .log(Level.CONFIG, job.toString());
+                redis.rpush("scheduler", job.toString());
             } catch (InterruptedException ex) {
                 break;
             }
